@@ -2,6 +2,9 @@ FROM php:7.3.12-cli-alpine
 
 ENV COMPOSER_ALLOW_SUPERUSER=1 \
   COMPOSER_DISABLE_XDEBUG_WARN=1
+  
+RUN apk add --update docker openrc
+RUN rc-update add docker boot
 
 RUN set -xe \
   && apk add --no-cache --virtual .build-deps \
