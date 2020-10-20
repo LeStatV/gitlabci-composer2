@@ -27,6 +27,10 @@ RUN set -xe \
   git \
   subversion \
   openssh-client \
+  patch \
+  make \
+  zip \
+  unzip \
   libmcrypt-dev \
   libmcrypt \
   libzip-dev \
@@ -52,10 +56,6 @@ RUN set -xe \
   simplexml \
   soap \
   bcmath \
-  patch \
-  make \
-  zip \
-  unzip \
   && docker-php-ext-install sodium \
   && apk del .build-deps \
   && rm -rf /tmp/* /var/cache/apk/* 
