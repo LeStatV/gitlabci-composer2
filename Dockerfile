@@ -3,7 +3,7 @@ FROM php:7.3.12-cli-alpine
 ENV COMPOSER_ALLOW_SUPERUSER=1 \
   COMPOSER_DISABLE_XDEBUG_WARN=1
   
-RUN apk add --update docker openrc
+RUN apk add  --no-cache --update docker openrc
 RUN rc-update add docker boot
 
 RUN set -xe \
@@ -52,6 +52,10 @@ RUN set -xe \
   simplexml \
   soap \
   bcmath \
+  patch \
+  make \
+  zip \
+  unzip \
   && docker-php-ext-install sodium \
   && apk del .build-deps \
   && rm -rf /tmp/* /var/cache/apk/* 
